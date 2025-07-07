@@ -1,0 +1,11 @@
+[
+  "DownloadKeystore",
+  "RunJob",
+  "ShowHistoryDetails",
+  "ShowJobListByProjectId",
+  "ShowJobStatus",
+  "ShowJobSuccessRatio",
+  "ShowLastHistory",
+  "ShowListHistory",
+  "ShowListPeriodHistory"
+]

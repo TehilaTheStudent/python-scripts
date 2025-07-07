@@ -1,0 +1,14 @@
+[
+  "CreateGroup",
+  "CreateUser",
+  "DeleteGroup",
+  "DeleteUser",
+  "GetGroup",
+  "GetUser",
+  "ListGroups",
+  "ListUsers",
+  "PatchGroup",
+  "PatchUser",
+  "PutUser",
+  "ServiceProviderConfig"
+]

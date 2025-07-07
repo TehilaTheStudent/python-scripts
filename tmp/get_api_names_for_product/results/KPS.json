@@ -1,0 +1,20 @@
+[
+  "AssociateKeypair",
+  "BatchAssociateKeypair",
+  "BatchExportPrivateKey",
+  "BatchImportKeypair",
+  "ClearPrivateKey",
+  "CreateKeypair",
+  "DeleteAllFailedTask",
+  "DeleteFailedTask",
+  "DeleteKeypair",
+  "DisassociateKeypair",
+  "ExportPrivateKey",
+  "ImportPrivateKey",
+  "ListFailedTask",
+  "ListKeypairDetail",
+  "ListKeypairs",
+  "ListKeypairTask",
+  "ListRunningTask",
+  "UpdateKeypairDescription"
+]

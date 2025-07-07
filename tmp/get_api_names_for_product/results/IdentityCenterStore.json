@@ -1,0 +1,21 @@
+[
+  "CreateGroup",
+  "CreateGroupMembership",
+  "CreateUser",
+  "DeleteGroup",
+  "DeleteGroupMembership",
+  "DeleteUser",
+  "DescribeGroup",
+  "DescribeGroupMembership",
+  "DescribeUser",
+  "GetGroupId",
+  "GetGroupMembershipId",
+  "GetUserId",
+  "IsMemberInGroups",
+  "ListGroupMemberships",
+  "ListGroupMembershipsForMember",
+  "ListGroups",
+  "ListUsers",
+  "UpdateGroup",
+  "UpdateUser"
+]

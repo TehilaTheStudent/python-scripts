@@ -1,0 +1,11 @@
+[
+  "BindInstanceTags",
+  "ChangeInstanceChargeMode",
+  "CreateInstance",
+  "DeleteInstance",
+  "ListInstances",
+  "ResizeInstance",
+  "ShowInstance",
+  "UnbindInstanceTags",
+  "UpdateInstance"
+]

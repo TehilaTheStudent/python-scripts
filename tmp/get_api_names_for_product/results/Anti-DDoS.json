@@ -1,0 +1,21 @@
+[
+  "CreateDefaultConfig",
+  "DeleteDefaultConfig",
+  "EnableDefensePolicy",
+  "ListDailyLog",
+  "ListDailyReport",
+  "ListDDosStatus",
+  "ListEipDDosStatus",
+  "ListNewConfigs",
+  "ListQuota",
+  "ListWeeklyReports",
+  "ShowAlertConfig",
+  "ShowDDos",
+  "ShowDDosStatus",
+  "ShowDefaultConfig",
+  "ShowLogConfig",
+  "ShowNewTaskStatus",
+  "UpdateAlertConfig",
+  "UpdateDDos",
+  "UpdateLogConfig"
+]

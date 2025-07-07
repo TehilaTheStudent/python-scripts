@@ -1,0 +1,11 @@
+[
+  "CreateAccount",
+  "DisableControl",
+  "EnableControl",
+  "ListControlsForOrganizationalUnit",
+  "ListEnabledControls",
+  "RegisterOrganizationalUnit",
+  "ShowControlOperate",
+  "ShowManagedAccount",
+  "ShowOperation"
+]

@@ -1,0 +1,501 @@
+{
+  "id": "8ee61eed48654ed9808966fb2314ee0c",
+  "name": "CreatePipelineNew",
+  "summary": "Create Pipeline",
+  "tags": "Pipeline Management - New",
+  "product_short": "CodeArtsPipeline",
+  "region_id": "ap-southeast-3",
+  "group_id": "1585db1ddd7d4ae5a0b4cf93d32fbe9a",
+  "paths": {
+    "/v5/{project_id}/api/pipelines": {
+      "post": {
+        "x-apigateway-backend": {
+          "type": "HTTP",
+          "httpEndpoints": {
+            "address": "10.63.38.190:40115",
+            "description": "",
+            "method": "POST",
+            "path": "/CloudPipelineServer/v5/{project_id}/api/pipelines",
+            "scheme": "https",
+            "timeout": 30000
+          },
+          "parameters": [
+            {
+              "name": "project_id",
+              "description": "Project ID",
+              "in": "PATH",
+              "origin": "REQUEST"
+            }
+          ]
+        },
+        "x-apigateway-cors": false,
+        "x-apigateway-match-mode": "NORMAL",
+        "x-apigateway-request-type": "public",
+        "x-is-registered": "Y",
+        "x-support-sdk": "Y",
+        "x-name": "Create Pipeline",
+        "x-request-examples-url-1": "POST https://{endpoint}/v5/d80a8a6530324b7bac972cbb8a9f28ec/api/pipelines",
+        "x-request-examples-1": {
+          "name": "NewPipeline-20231024204112",
+          "description": "",
+          "is_publish": false,
+          "sources": [
+            {
+              "type": "code",
+              "params": {
+                "git_type": "codehub",
+                "codehub_id": "2111699317",
+                "endpoint_id": "",
+                "default_branch": "master",
+                "git_url": "https://codehub.huawei.com/012321313001/012321313001-android.git",
+                "ssh_git_url": "git@codehub.huawei.com:012321313001/012321313001-android.git",
+                "web_url": "",
+                "repo_name": "0213yjw1-android",
+                "alias": ""
+              }
+            }
+          ],
+          "definition": "{\"stages\":[{\"id\":1698151278179,\"identifier\":\"169815127817987dd9f1d-7821-46e4-89be-2a95b01b0533\",\"run_always\":false,\"name\":\"Stage_1\",\"sequence\":\"0\",\"jobs\":[{\"id\":\"\",\"stage_id\":1698151278179,\"identifier\":\"1698151278179f6548479-2eaf-420a-92a4-92d9a711c51b\",\"name\":\"NewTask\",\"depends_on\":[],\"timeout\":\"\",\"timeout_unit\":\"\",\"steps\":[],\"exec_type\":\"AGENTLESS_JOB\",\"sequence\":0}],\"rule_templates\":[],\"pre\":[{\"task\":\"official_devcloud_autoTrigger\",\"sequence\":0}],\"post\":[],\"depends_on\":[]}]}"
+        },
+        "tags": [
+          "Pipeline Management - New"
+        ],
+        "summary": "Create Pipeline",
+        "description": "Create Pipeline",
+        "operationId": "CreatePipelineNew",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Path-Project-Id"
+          },
+          {
+            "name": "component_id",
+            "in": "query",
+            "required": false,
+            "description": "Component ID",
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/X-Auth-Token"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "Create pipeline request body",
+            "schema": {
+              "$ref": "#/definitions/PipelineDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PipelineId"
+            },
+            "examples": {
+              "application/json": {
+                "pipeline_id": "8bfbd69eac154a0da341705a36294aca"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "PipelineDTO": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Pipeline name"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description"
+        },
+        "is_publish": {
+          "type": "boolean",
+          "description": "Indicates whether the pipeline is a change pipeline."
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CodeSource"
+          },
+          "description": "Pipeline Code Source"
+        },
+        "variables": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustomVariable"
+          },
+          "description": "Pipeline custom global variables"
+        },
+        "schedules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PipelineSchedule"
+          },
+          "description": "Pipeline timed execution configuration"
+        },
+        "triggers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PipelineTrigger"
+          },
+          "description": "Pipeline Code Event Trigger Configuration"
+        },
+        "manifest_version": {
+          "type": "string",
+          "description": "Pipeline structure definition version, the default version for the new version is 3.0"
+        },
+        "definition": {
+          "type": "string",
+          "description": "Definition of pipeline structure"
+        },
+        "project_name": {
+          "type": "string",
+          "description": "Project Name"
+        },
+        "group_id": {
+          "type": "string",
+          "description": "Pipeline Group ID"
+        },
+        "id": {
+          "type": "string",
+          "description": "If it is a copy scenario, it is the original pipeline ID."
+        },
+        "concurrency_control": {
+          "$ref": "#/definitions/PipelineConcurrencyMgmt"
+        }
+      },
+      "required": [
+        "name",
+        "is_publish",
+        "definition"
+      ]
+    },
+    "PipelineConcurrencyMgmt": {
+      "type": "object",
+      "description": "Pipeline concurrency management",
+      "properties": {
+        "pipeline_id": {
+          "type": "string",
+          "example": "847a5317086c41798469d0868535943a",
+          "description": "Pipeline ID"
+        },
+        "concurrency_number": {
+          "type": "integer",
+          "format": "int32",
+          "example": 4,
+          "description": "Concurrency Number"
+        },
+        "exceed_action": {
+          "type": "string",
+          "example": "waiting",
+          "description": "Strategy in case of exceeding the limit"
+        },
+        "create_time": {
+          "type": "integer",
+          "format": "int64",
+          "example": 1673495851000,
+          "description": "Creation time"
+        },
+        "update_time": {
+          "type": "integer",
+          "format": "int64",
+          "example": 1673495851000,
+          "description": "Update time"
+        },
+        "enable": {
+          "type": "boolean",
+          "example": false,
+          "description": "Is it valid"
+        }
+      }
+    },
+    "CodeEvent": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Event Type"
+        },
+        "enable": {
+          "type": "boolean",
+          "description": "Enable or not"
+        }
+      }
+    },
+    "PipelineId": {
+      "type": "object",
+      "properties": {
+        "pipeline_id": {
+          "type": "string",
+          "description": "Pipeline ID"
+        }
+      },
+      "description": "Pipeline ID"
+    },
+    "CustomVariable": {
+      "type": "object",
+      "properties": {
+        "pipeline_id": {
+          "type": "string",
+          "description": "Pipeline ID"
+        },
+        "name": {
+          "type": "string",
+          "description": "Custom Parameter Name"
+        },
+        "sequence": {
+          "type": "integer",
+          "format": "int32",
+          "description": "User-defined Parameter Sequence"
+        },
+        "type": {
+          "type": "string",
+          "description": "Custom Parameter Type"
+        },
+        "value": {
+          "type": "string",
+          "description": "Default values of customized parameters"
+        },
+        "is_secret": {
+          "type": "boolean",
+          "description": "Indicates whether the parameter is private."
+        },
+        "description": {
+          "type": "string",
+          "description": "User-defined Parameter Description"
+        },
+        "is_runtime": {
+          "type": "boolean",
+          "description": "Indicates whether to set during running."
+        },
+        "limits": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "description": "Limited"
+        },
+        "is_reset": {
+          "type": "boolean",
+          "description": "Reset or Not"
+        },
+        "latest_value": {
+          "type": "string",
+          "description": "Latest Parameter Value"
+        },
+        "runtime_value": {
+          "type": "string",
+          "description": "Value Transferred During Running"
+        }
+      }
+    },
+    "PipelineTrigger": {
+      "type": "object",
+      "properties": {
+        "pipeline_id": {
+          "type": "string",
+          "description": "Pipeline ID"
+        },
+        "git_url": {
+          "type": "string",
+          "description": "Git url"
+        },
+        "git_type": {
+          "type": "string",
+          "description": "Repo Type"
+        },
+        "is_auto_commit": {
+          "type": "boolean",
+          "description": "Automatically commit or not"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CodeEvent"
+          },
+          "description": "Event"
+        },
+        "hook_id": {
+          "type": "string",
+          "description": "Hook ID"
+        },
+        "repo_id": {
+          "type": "string",
+          "description": "Repo ID"
+        },
+        "endpoint_id": {
+          "type": "string",
+          "description": "Endpoint ID"
+        },
+        "callback_url": {
+          "type": "string",
+          "description": "Callback Url"
+        },
+        "security_token": {
+          "type": "string",
+          "description": "User Token"
+        }
+      }
+    },
+    "PipelineSchedule": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "Task ID"
+        },
+        "type": {
+          "type": "string",
+          "description": "Task Type"
+        },
+        "name": {
+          "type": "string",
+          "description": "Task Name"
+        },
+        "enable": {
+          "type": "string",
+          "description": "Enable or not"
+        },
+        "days_of_week": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": "Specific time within a week"
+        },
+        "time_zone": {
+          "type": "string",
+          "description": "Timezone"
+        }
+      }
+    },
+    "CodeSource": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "code",
+          "description": "Pipeline Source Type"
+        },
+        "params": {
+          "description": "Pipeline Source Parameters",
+          "properties": {
+            "git_type": {
+              "type": "string",
+              "example": "codehub",
+              "description": "Git Type"
+            },
+            "codehub_id": {
+              "type": "string",
+              "example": 2111694089,
+              "description": "CodeHub code repository ID."
+            },
+            "endpoint_id": {
+              "type": "string",
+              "example": "",
+              "description": "Extension point ID."
+            },
+            "default_branch": {
+              "type": "string",
+              "example": "master",
+              "description": "Default Branch"
+            },
+            "git_url": {
+              "type": "string",
+              "example": "https://codehub.devcloud.cn-north-7.ulanqab.huawei.com/UnionSdkcsxm-wd00001/demo.git",
+              "description": "git link"
+            },
+            "ssh_git_url": {
+              "type": "string",
+              "example": "git@codehub.devcloud.cn-north-7.ulanqab.huawei.com:UnionSdkcsxm-wd00001/demo.git",
+              "description": "ssh git link"
+            },
+            "web_url": {
+              "type": "string",
+              "example": "",
+              "description": "Web page URL."
+            },
+            "repo_name": {
+              "type": "string",
+              "example": "demo",
+              "description": "Pipeline Source Name"
+            },
+            "alias": {
+              "type": "string",
+              "example": "",
+              "description": "Code Repository Alias"
+            }
+          }
+        }
+      }
+    }
+  },
+  "security_definitions": {
+    "apig-auth-app": {
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-apigateway-auth-type": "AppSigv1"
+    },
+    "apig-auth-iam": {
+      "in": "header",
+      "name": "unused",
+      "type": "apiKey",
+      "x-apigateway-auth-type": "IAM"
+    },
+    "apig-auth-iam-none": {
+      "in": "header",
+      "name": "unused",
+      "type": "apiKey",
+      "x-apigateway-auth-type": "IAM_NONE"
+    }
+  },
+  "version": "2.0",
+  "components": null,
+  "consumes": "[\"application/json;charset=UTF-8\"]",
+  "parameters": {
+    "X-Auth-Token": {
+      "name": "X-Auth-Token",
+      "in": "header",
+      "description": "User token. Can be obtained by calling the IAM API for obtaining the user token (the value of X-Subject-Token in the response header).",
+      "required": true,
+      "type": "string",
+      "x-example": "MIIDkgYJKoZIhvcNAQcCoIIDgzCCXXXXXX..."
+    },
+    "Path-Project-Id": {
+      "name": "project_id",
+      "in": "path",
+      "required": true,
+      "description": "Project ID.",
+      "type": "string",
+      "minLength": 32,
+      "maxLength": 32
+    }
+  },
+  "schemes": [
+    "HTTPS"
+  ],
+  "host": "cloudpipeline-ext.ap-southeast-3.myhuaweicloud.com",
+  "base_path": "/",
+  "info_version": "v2",
+  "description": null,
+  "method": "post",
+  "uri": null
+}

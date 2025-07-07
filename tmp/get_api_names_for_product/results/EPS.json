@@ -1,0 +1,14 @@
+[
+  "CreateEnterpriseProject",
+  "DisableEnterpriseProject",
+  "EnableEnterpriseProject",
+  "ListApiVersions",
+  "ListEnterpriseProject",
+  "ListProviders",
+  "MigrateResource",
+  "ShowApiVersion",
+  "ShowEnterpriseProject",
+  "ShowEnterpriseProjectQuota",
+  "ShowResourceBindEnterpriseProject",
+  "UpdateEnterpriseProject"
+]

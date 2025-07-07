@@ -1,0 +1,10 @@
+[
+  "CheckImageModeration",
+  "RunCloseAudioStreamModerationJob",
+  "RunCreateAudioModerationJob",
+  "RunCreateAudioStreamModerationJob",
+  "RunCreateVideoModerationJob",
+  "RunQueryAudioModerationJob",
+  "RunQueryVideoModerationJob",
+  "RunTextModeration"
+]

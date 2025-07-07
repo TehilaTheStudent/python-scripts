@@ -1,0 +1,18 @@
+[
+  "BatchCreateResourceTags",
+  "BatchDeleteResourceTags",
+  "CheckObsBuckets",
+  "CreateNotification",
+  "CreateTracker",
+  "DeleteNotification",
+  "DeleteTracker",
+  "ListNotifications",
+  "ListOperations",
+  "ListQuotas",
+  "ListTraceResources",
+  "ListTraces",
+  "ListTrackers",
+  "ListUserResources",
+  "UpdateNotification",
+  "UpdateTracker"
+]

@@ -1,0 +1,18 @@
+[
+  "RecognizeAutoIdDocClassification",
+  "RecognizeCambodianIdCard",
+  "RecognizeChileIdCard",
+  "RecognizeColombiaIdCard",
+  "RecognizeGeneralTable",
+  "RecognizeGeneralText",
+  "RecognizeIdDocument",
+  "RecognizeMyanmarDriverLicense",
+  "RecognizeMyanmarIdcard",
+  "RecognizePassport",
+  "RecognizePeruIdCard",
+  "RecognizeSmartDocumentRecognizer",
+  "RecognizeThailandIdcard",
+  "RecognizeThailandLicensePlate",
+  "RecognizeVietnamIdCard",
+  "RecognizeWebImage"
+]

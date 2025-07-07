@@ -1,0 +1,16 @@
+[
+  "CreatePredefineTags",
+  "CreateResourceTag",
+  "DeletePredefineTags",
+  "DeleteResourceTag",
+  "ListApiVersions",
+  "ListPredefineTags",
+  "ListProviders",
+  "ListResource",
+  "ListTagKeys",
+  "ListTagValues",
+  "ShowApiVersion",
+  "ShowResourceTag",
+  "ShowTagQuota",
+  "UpdatePredefineTags"
+]
